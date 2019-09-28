@@ -32,6 +32,7 @@ public class ContentService {
 			data.getContentType().setContentTypeCd(1);
 			data.setHeight((int) content.getHeight());
 			data.setWidth((int) content.getWidth());
+			data.setMimeType("text/html");
 			data = saveContentBody(data);
 
 			htmlData.append("<iframe width=\"");
@@ -54,12 +55,13 @@ public class ContentService {
 	private Content saveContentBody(Content content) throws DSException {
 		try {
 			if (content.getContentType().getContentTypeCd() == 2) {
-				content.setContentId(
-						contentRepository.saveContent(null, 2, content.getHeight(), content.getWidth(), 1));
+				content.setContentId(contentRepository.saveContent(null, 2, content.getHeight(), content.getWidth(), 1,
+						content.getMimeType()));
 				contentRepository.saveSlides(content.getContentId(), ContentUtils.ppt2Png(content.getContentBody()));
 			} else {
 				content.setContentId(contentRepository.saveContent(content.getContentBody(),
-						content.getContentType().getContentTypeCd(), content.getHeight(), content.getWidth(), 1));
+						content.getContentType().getContentTypeCd(), content.getHeight(), content.getWidth(), 1,
+						content.getMimeType()));
 			}
 			return content;
 		} catch (DSException e) {
@@ -98,6 +100,7 @@ public class ContentService {
 			contentBody.getContentType().setContentTypeCd(getContentTypeCode(content.getType()));
 			contentBody.setHeight((int) content.getHeight());
 			contentBody.setWidth((int) content.getWidth());
+			contentBody.setMimeType(content.getType());
 			contentBody = saveContentBody(contentBody);
 			StringBuilder htmlData = new StringBuilder();
 			htmlData.append("<div style=\"position:absolute;top:");

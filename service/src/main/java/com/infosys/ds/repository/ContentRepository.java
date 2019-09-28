@@ -29,7 +29,7 @@ public class ContentRepository {
 	@Autowired
 	private Environment env;
 
-	public int saveContent(String contentBody, int contentTypeCd, int height, int width, int userId)
+	public int saveContent(String contentBody, int contentTypeCd, int height, int width, int userId, String mimeType)
 			throws DSException {
 		try {
 			KeyHolder keyHolder = new GeneratedKeyHolder();
@@ -45,6 +45,7 @@ public class ContentRepository {
 					ps.setInt(4, width);
 					ps.setInt(5, userId);
 					ps.setInt(6, userId);
+					ps.setString(7, mimeType);
 					return ps;
 				}
 			}, keyHolder);
