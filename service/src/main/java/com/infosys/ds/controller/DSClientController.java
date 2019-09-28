@@ -50,7 +50,7 @@ public class DSClientController {
 							+ "	href=\"https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css\"\r\n"
 							+ "	integrity=\"sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm\"\r\n"
 							+ "	crossorigin=\"anonymous\">\r\n" + "</head>\r\n"
-							+ "<body style=\"margin: 0; padding: 0\"><video autoplay videoPlayer loop muted playsinline style=\"width:"
+							+ "<body style=\"margin: 0; padding: 0\"><video class=\"embed-responsive\" autoplay videoPlayer loop muted playsinline style=\"width:"
 							+ content.getWidth() + "px;height:" + content.getHeight() + "px\"><source type=\""
 							+ content.getMimeType() + "\" src=\"data:" + content.getMimeType() + ";base64,"
 							+ content.getContentBody()
