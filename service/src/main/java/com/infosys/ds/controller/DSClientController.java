@@ -46,7 +46,7 @@ public class DSClientController {
 					contentType = MimeTypeUtils.TEXT_HTML_VALUE;
 					break;
 				case 4:
-					String htmlContent = "<video autoplay #videoPlayer class=\"embed-responsive\" loop muted playsinline style=\"width:"
+					String htmlContent = "<video autoplay videoPlayer loop muted playsinline style=\"width:"
 							+ content.getWidth() + "px;height:" + content.getHeight() + "px\"><source type=\""
 							+ content.getMimeType() + "\" src=\"data:" + content.getMimeType() + ";base64,"
 							+ content.getContentBody() + "\"></video>";
