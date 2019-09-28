@@ -130,7 +130,7 @@ public class ContentService {
 			htmlData.append(content.getHeight());
 			htmlData.append("\" src=\"");
 			htmlData.append(env.getProperty("url.content") + contentBody.getContentId());
-			htmlData.append("\" style=\"overflow:hidden;border:none\" /></div>");
+			htmlData.append("\" style=\"overflow:hidden;border:none\" ></iframe></div>");
 			return htmlData.toString();
 		} catch (DSException e) {
 			throw e;
